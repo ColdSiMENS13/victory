@@ -60,3 +60,15 @@ c5ae76,192.168.32.1,GET,http://localhost:49100/wheelBrands,1699121971,,200
 ccd7ee,192.168.32.1,GET,http://localhost:49100/wheelBrands,1699122083,,200
 4794ee,192.168.32.1,GET,http://localhost:49100/wheelBrands,1699122135,,200
 4e4359,192.168.32.1,GET,http://localhost:49100/wheelBrands,1699122304,,200
+12b2b2,192.168.64.1,GET,http://localhost:49100/wheelBrands,1699298284,,200
+fda4a9,192.168.64.1,GET,http://localhost:49100/wheelBrands/1,1699298302,,200
+6dbfca,192.168.64.1,GET,http://localhost:49100/wheelBrands/3,1699298317,,200
+7beb3c,192.168.64.1,GET,http://localhost:49100/wheelBrands/3,1699298324,,200
+881c6b,192.168.64.1,GET,http://localhost:49100/wheelBrands/3,1699298404,,200
+e87660,192.168.64.1,GET,http://localhost:49100/wheelBrands/3,1699298428,,200
+64d542,192.168.64.1,GET,http://localhost:49100/wheelBrands/1,1699298433,,200
+64cb87,192.168.64.1,GET,http://localhost:49100/wheelBrands/2,1699298443,,200
+dbb2c4,192.168.64.1,GET,http://localhost:49100/wheelBrands/2,1699298473,,200
+06f526,192.168.64.1,GET,http://localhost:49100/wheelBrands/2,1699298562,,200
+da34ab,192.168.64.1,GET,http://localhost:49100/wheelBrands/2,1699298577,,200
+717b34,192.168.64.1,GET,http://localhost:49100/wheelBrands,1699298610,,200

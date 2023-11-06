@@ -340,13 +340,18 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\WheelBrandController"/>
       </call>
     </service>
-    <service id="App\Model\WheelsBrandListCollection" class="App\Model\WheelsBrandListCollection" autowire="true" autoconfigure="true"/>
+    <service id="App\Model\WheelsListCollection" class="App\Model\WheelsListCollection" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\WheelsBrandRepository" class="App\Repository\WheelsBrandRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\WheelsSizeRepository" class="App\Repository\WheelsSizeRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Services\ServiceWheelsRepository" class="App\Services\ServiceWheelsRepository" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Repository\WheelsBrandRepository"/>
+      <argument type="service" id="App\Repository\WheelsSizeRepository"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
@@ -2804,12 +2809,7 @@
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
-        <argument type="service" id="annotations.dummy_registry" on-invalid="null"/>
-      </call>
-    </service>
-    <service id="annotations.dummy_registry" class="Doctrine\Common\Annotations\AnnotationRegistry">
-      <call method="registerUniqueLoader">
-        <argument>class_exists</argument>
+        <argument>null</argument>
       </call>
     </service>
     <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\PsrCachedReader">
@@ -3900,7 +3900,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.mdq6qGW"/>
+      <argument type="service" id=".service_locator.vi0f8r3"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4737,7 +4737,7 @@
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <tag name="kernel.reset" method="reset"/>
       <argument>/var/www/var/log/dev.log</argument>
-      <argument>100</argument>
+      <argument>debug</argument>
       <argument>true</argument>
       <argument>null</argument>
       <argument>false</argument>
@@ -5745,6 +5745,8 @@
     <service id=".abstract.instanceof.App\Controller\WheelBrandController" class="App\Controller\WheelBrandController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\WheelsBrandRepository" class="App\Repository\WheelsBrandRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\WheelsBrandRepository" class="App\Repository\WheelsBrandRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\WheelsSizeRepository" class="App\Repository\WheelsSizeRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\WheelsSizeRepository" class="App\Repository\WheelsSizeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6373,10 +6375,11 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.mdq6qGW" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.vi0f8r3" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\WheelsBrandRepository" type="service_closure" id="App\Repository\WheelsBrandRepository"/>
+        <argument key="App\Repository\WheelsSizeRepository" type="service_closure" id="App\Repository\WheelsSizeRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
