@@ -18,4 +18,10 @@ class WheelBrandController extends AbstractController
     {
         return $this->json($this->serviceWheelsRepository->getBrands());
     }
+
+    #[Route(path: '/wheelBrands/{id}')]
+    public function getBrandsBySize(int $id): Response
+    {
+        return $this->json($this->serviceWheelsRepository->getBrandsBySize($id));
+    }
 }

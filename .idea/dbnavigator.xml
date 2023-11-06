@@ -23,8 +23,10 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="3514798a-9a9a-4892-b9f2-cf78343580b0" dataset="shop.wheels_brand" active-filter-id="" />
+    <filter-actions connection-id="3514798a-9a9a-4892-b9f2-cf78343580b0" dataset="shop.wheels_brand_wheel_size" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="3514798a-9a9a-4892-b9f2-cf78343580b0" dataset="shop.wheels_brand" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="3514798a-9a9a-4892-b9f2-cf78343580b0" dataset="shop.doctrine_migration_versions" active-filter-id="" />
+    <filter-actions connection-id="3514798a-9a9a-4892-b9f2-cf78343580b0" dataset="shop.wheel_size" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />

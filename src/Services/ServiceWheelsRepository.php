@@ -2,22 +2,26 @@
 
 namespace App\Services;
 
-use App\Model\WheelsBrandListCollection;
+use App\Model\WheelsListCollection;
 use App\Repository\WheelsBrandRepository;
+use App\Repository\WheelsSizeRepository;
 
 class ServiceWheelsRepository
 {
-    private WheelsBrandRepository $wheelsRepository;
-
-    public function __construct(WheelsBrandRepository $wheelsRepository)
+    public function __construct(private WheelsBrandRepository $wheelsRepository, private WheelsSizeRepository $wheelsSizeRepository)
     {
-        $this->wheelsRepository = $wheelsRepository;
     }
 
-    public function getBrands(): WheelsBrandListCollection
+    public function getBrands(): WheelsListCollection
     {
         $brands = $this->wheelsRepository->findAllBrands();
 
-        return new WheelsBrandListCollection($brands);
+        return new WheelsListCollection($brands);
+    }
+
+    public function getBrandsBySize(int $sizeId): WheelsListCollection
+    {
+        $items = $this->wheelsSizeRepository->findWheelBrandBySize($sizeId);
+        return new WheelsListCollection($items);
     }
 }
