@@ -16,43 +16,36 @@ class WheelsBrand
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $slug = null;
+    private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $wheelBrand = null;
-
-    #[ORM\ManyToMany(targetEntity: WheelSize::class)]
-    private Collection $wheelSize;
-
-    public function __construct()
-    {
-        $this->wheelSize = new ArrayCollection([]);
-    }
+    #[ORM\ManyToOne(inversedBy: 'wheelsBrand')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Wheels $wheels = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getSlug(): ?string
+    public function getName(): ?string
     {
-        return $this->slug;
+        return $this->name;
     }
 
-    public function setSlug(?string $slug): WheelsBrand
+    public function setName(?string $name): WheelsBrand
     {
-        $this->slug = $slug;
+        $this->name = $name;
         return $this;
     }
 
-    public function getWheelBrand(): ?string
+    public function getWheels(): ?Wheels
     {
-        return $this->wheelBrand;
+        return $this->wheels;
     }
 
-    public function setWheelBrand(?string $wheelBrand): WheelsBrand
+    public function setWheels(?Wheels $wheels): WheelsBrand
     {
-        $this->wheelBrand = $wheelBrand;
+        $this->wheels = $wheels;
         return $this;
     }
 }
