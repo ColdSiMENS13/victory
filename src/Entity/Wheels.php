@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\WheelsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: WheelsRepository::class)]
@@ -15,6 +13,10 @@ class Wheels
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\OneToOne(targetEntity: WheelsBrand::class)]
+    #[ORM\JoinColumn(name: 'wheels_brand_id', referencedColumnName: 'id')]
+    private ?WheelsBrand $wheelsBrand = null;
+
     #[ORM\Column(length: 255)]
     private ?string $wheelsDiameter = null;
 
@@ -23,14 +25,6 @@ class Wheels
 
     #[ORM\Column]
     private ?int $wheelsWidth = null;
-
-    #[ORM\OneToMany(mappedBy: 'wheels', targetEntity: WheelsBrand::class, orphanRemoval: true)]
-    private Collection $wheelsBrand;
-
-    public function __construct()
-    {
-        $this->wheelsBrand = new ArrayCollection([]);
-    }
 
     public function getId(): ?int
     {
@@ -45,6 +39,7 @@ class Wheels
     public function setWheelsDiameter(?string $wheelsDiameter): Wheels
     {
         $this->wheelsDiameter = $wheelsDiameter;
+
         return $this;
     }
 
@@ -56,6 +51,7 @@ class Wheels
     public function setWheelsHeight(?int $wheelsHeight): Wheels
     {
         $this->wheelsHeight = $wheelsHeight;
+
         return $this;
     }
 
@@ -70,12 +66,12 @@ class Wheels
         return $this;
     }
 
-    public function getWheelsBrand(): Collection
+    public function getWheelsBrand(): ?WheelsBrand
     {
         return $this->wheelsBrand;
     }
 
-    public function setWheelsBrand(Collection $wheelsBrand): Wheels
+    public function setWheelsBrand(?WheelsBrand $wheelsBrand): Wheels
     {
         $this->wheelsBrand = $wheelsBrand;
         return $this;

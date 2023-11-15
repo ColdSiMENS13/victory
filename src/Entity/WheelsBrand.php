@@ -18,10 +18,6 @@ class WheelsBrand
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'wheelsBrand')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Wheels $wheels = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -35,17 +31,6 @@ class WheelsBrand
     public function setName(?string $name): WheelsBrand
     {
         $this->name = $name;
-        return $this;
-    }
-
-    public function getWheels(): ?Wheels
-    {
-        return $this->wheels;
-    }
-
-    public function setWheels(?Wheels $wheels): WheelsBrand
-    {
-        $this->wheels = $wheels;
         return $this;
     }
 }

@@ -26,4 +26,12 @@ class WheelsBrandRepository extends ServiceEntityRepository
     {
         return $this->findBy([], ['name' => Criteria::ASC]);
     }
+
+    public function findBrandById(int $brandId): array
+    {
+        $query = $this->_em->createQuery('SELECT b FROM App\Entity\WheelsBrand b WHERE b.id = :brandId');
+        $query->setParameter('brandId', $brandId);
+
+        return $query->getResult();
+    }
 }
