@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\WheelsBrand;
-use App\Services\ServiceWheelsRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Persistence\ManagerRegistry;
@@ -25,6 +24,14 @@ class WheelsBrandRepository extends ServiceEntityRepository
 
     public function findAllBrands(): array
     {
-        return  $this->findBy([], ['wheelBrand' => Criteria::ASC]);
+        return $this->findBy([], ['name' => Criteria::ASC]);
+    }
+
+    public function findBrandById(int $brandId): array
+    {
+        $query = $this->_em->createQuery('SELECT b FROM App\Entity\WheelsBrand b WHERE b.id = :brandId');
+        $query->setParameter('brandId', $brandId);
+
+        return $query->getResult();
     }
 }
