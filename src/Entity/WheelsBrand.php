@@ -23,6 +23,12 @@ class WheelsBrand
         return $this->id;
     }
 
+    public function setId(?int $id): WheelsBrand
+    {
+        $this->id = $id;
+        return $this;
+    }
+
     public function getName(): ?string
     {
         return $this->name;

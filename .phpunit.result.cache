@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":[]}
+{"version":1,"defects":{"App\\Tests\\Services\\WheelsBrandServiceTest::testGetAllBrands":3,"App\\Tests\\Services\\WheelsBrandServiceTest::testGetBrandByIdNotFound":3,"App\\Tests\\Services\\WheelsBrandServiceTest::testGetBrandById":3},"times":{"App\\Tests\\Services\\WheelsBrandServiceTest::testGetAllBrands":0.021,"App\\Tests\\Services\\WheelsBrandServiceTest::testGetBrandByIdNotFound":0.005,"App\\Tests\\Services\\WheelsBrandServiceTest::testGetBrandById":0.002}}
