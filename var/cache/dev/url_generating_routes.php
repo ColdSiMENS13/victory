@@ -18,6 +18,6 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'admin' => [[], ['_controller' => 'App\\Controller\\Admin\\WheelsBrandDashboardController::index'], [], [['text', '/admin']], [], [], []],
-    'brands' => [[], ['_controller' => 'App\\Controller\\WheelsBrandsController::getBrands'], [], [['text', '/brands']], [], [], []],
-    'app_wheelsbrands_getbrandbyid' => [['brandId'], ['_controller' => 'App\\Controller\\WheelsBrandsController::getBrandById'], [], [['variable', '/', '[^/]++', 'brandId', true], ['text', '/brands']], [], [], []],
+    'brands' => [[], ['_controller' => 'App\\Controller\\WheelsBrandsController::getBrands'], [], [['text', '/api/v1/brands']], [], [], []],
+    'app_wheelsbrands_getbrandbyid' => [['brandId'], ['_controller' => 'App\\Controller\\WheelsBrandsController::getBrandById'], [], [['variable', '/', '[^/]++', 'brandId', true], ['text', '/api/v1/brands']], [], [], []],
 ];

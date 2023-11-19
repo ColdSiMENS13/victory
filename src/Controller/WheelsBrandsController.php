@@ -15,13 +15,13 @@ class WheelsBrandsController extends AbstractController
     {
     }
 
-    #[Route(path: '/brands', name: 'brands')]
+    #[Route(path: 'api/v1/brands', name: 'brands')]
     public function getBrands(): Response
     {
         return $this->json($this->wheelsBrandService->getAllBrands());
     }
 
-    #[Route(path: '/brands/{brandId}')]
+    #[Route(path: 'api/v1/brands/{brandId}')]
     public function getBrandById(int $brandId): Response
     {
         try {
