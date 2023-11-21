@@ -180,3 +180,4 @@ dc97f2,172.22.0.1,GET,http://localhost:49100/admin,1700074239,,302
 1ab6aa,172.22.0.1,GET,http://localhost:49100/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CWheelsBrandCrudController,1700074240,,200
 3b71e6,172.22.0.1,GET,http://localhost:49100/admin?routeName=brands,1700074250,,200
 812480,172.23.0.1,GET,http://localhost:49100/api/v1/brands,1700412783,,200
+3f9a6b,172.23.0.1,GET,http://localhost:49100/api/v1/brands/1,1700420729,,200
