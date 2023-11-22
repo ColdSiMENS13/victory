@@ -13,10 +13,11 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="3514798a-9a9a-4892-b9f2-cf78343580b0">
-      <console name="Connection" type="STANDARD" schema="shop" session="Main"><![CDATA[select wheels.id, wheels_brand.name, wheels_diameter.diameter, wheels_height.height from wheels
-join wheels_brand on wheels_brand.id = wheels.wheels_brand_id
-join wheels_diameter on wheels_diameter.id = wheels.wheels_diameter_id
-join wheels_height on wheels_height.id = wheels.wheels_height_id]]></console>
+      <console name="Connection" type="STANDARD" schema="shop" session="Main"><![CDATA[use shop
+
+select b.name, w.wheels_diameter, w.wheels_height, w.wheels_width
+from wheels as w
+join wheels_brand as b on b.id = w.wheels_brand_id]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
