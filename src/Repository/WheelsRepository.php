@@ -23,6 +23,10 @@ class WheelsRepository extends ServiceEntityRepository
 
     public function findAllWheels(): array
     {
-        return $this->findAll();
+        $query = $this->_em->createQuery('SELECT b.name, w.wheelsDiameter, w.wheelsHeight, w.wheelsWidth
+        FROM App\Entity\Wheels w
+        JOIN w.wheelsBrand b');
+
+        return $query->getResult();
     }
 }

@@ -19,7 +19,7 @@ class WheelsBrandService
         return new ListCollection($brands);
     }
 
-    public function getBrandById(int $brandId): ListCollection
+    public function getBrandById(int $brandId): array
     {
         $brand = $this->wheelsBrandRepository->find($brandId);
 
@@ -28,6 +28,6 @@ class WheelsBrandService
             throw new BrandNotFoundException();
         }
 
-        return new ListCollection($this->wheelsBrandRepository->findBrandById($brandId));
+        return $this->wheelsBrandRepository->findBrandById($brandId);
     }
 }
