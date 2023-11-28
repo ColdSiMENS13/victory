@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\WheelsBrand;
 use App\Exceptions\BrandNotFoundException;
+use App\Repository\WheelsBrandRepository;
 use App\Services\WheelsBrandService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WheelsBrandsController extends AbstractController
 {
-    public function __construct(private WheelsBrandService $wheelsBrandService)
+    public function __construct(private WheelsBrandService $wheelsBrandService, private WheelsBrandRepository $wheelsBrandRepository)
     {
     }
 
@@ -29,5 +31,12 @@ class WheelsBrandsController extends AbstractController
         } catch (BrandNotFoundException $exception) {
             throw new HttpException($exception->getCode(), $exception->getMessage());
         }
+    }
+
+    #[Route(path: 'main')]
+    public function viewAllBrands(): Response
+    {
+        $brands = $this->wheelsBrandRepository->findAllBrands();
+        return $this->render('brands.html.twig', ['brands' => $brands]);
     }
 }

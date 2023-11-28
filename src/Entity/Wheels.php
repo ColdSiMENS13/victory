@@ -63,6 +63,7 @@ class Wheels
     public function setWheelsWidth(?int $wheelsWidth): Wheels
     {
         $this->wheelsWidth = $wheelsWidth;
+
         return $this;
     }
 
@@ -74,6 +75,7 @@ class Wheels
     public function setWheelsBrand(?WheelsBrand $wheelsBrand): Wheels
     {
         $this->wheelsBrand = $wheelsBrand;
+
         return $this;
     }
 }

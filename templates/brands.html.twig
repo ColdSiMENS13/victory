@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Brands</title>
+    </head>
+    <body>
+    <h3>Brands</h3>
+    {% for brand in brands %}
+            <li><a href="/api/v1/brands/{{ brand.id }}">{{ brand.name }}</a></li>
+    {% endfor %}
+    </body>
+</html>
