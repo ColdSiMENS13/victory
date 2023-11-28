@@ -23,9 +23,21 @@ class WheelsRepository extends ServiceEntityRepository
 
     public function findAllWheels(): array
     {
-        $query = $this->_em->createQuery('SELECT b.name, w.wheelsDiameter, w.wheelsHeight, w.wheelsWidth
+        $query = $this->_em->createQuery('SELECT w.id, b.name, w.wheelsDiameter, w.wheelsHeight, w.wheelsWidth
         FROM App\Entity\Wheels w
         JOIN w.wheelsBrand b');
+
+        return $query->getResult();
+    }
+
+    public function findWheelById(int $wheelId): array
+    {
+        $query = $this->_em->createQuery('SELECT w.id, b.name, w.wheelsDiameter, w.wheelsHeight, w.wheelsWidth
+        FROM App\Entity\Wheels w
+        JOIN w.wheelsBrand b
+        WHERE w.id = :wheelId');
+
+        $query->setParameter('wheelId', $wheelId);
 
         return $query->getResult();
     }
