@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% for nameOfBrand in brand %}
+                {{ nameOfBrand.name }}
+            {% endfor %}</title>
+    </head>
+    <body>
+    <h1 style="text-align:center">
+    {% for nameOfBrand in brand %}
+        {{ nameOfBrand.name }}
+    {% endfor %}
+    </h1>
+    {% for image in brand %}
+        <img src="{{ image.image }}" style="width:500px;height:150px;">
+    {% endfor %}
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Brands</title>
+</head>
+<body>
+<h3>Brands</h3>
+
+    <li><a href="/api/v1/brands/{{ brand.id }}"></a></li>
+{% endfor %}
+</body>
+</html>

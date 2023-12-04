@@ -25,6 +25,9 @@ class Wheels
 
     #[ORM\Column]
     private ?int $wheelsWidth = null;
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
 
     public function getId(): ?int
     {
@@ -76,6 +79,17 @@ class Wheels
     {
         $this->wheelsBrand = $wheelsBrand;
 
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): Wheels
+    {
+        $this->image = $image;
         return $this;
     }
 }

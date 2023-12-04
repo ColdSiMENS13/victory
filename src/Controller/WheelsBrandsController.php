@@ -20,20 +20,21 @@ class WheelsBrandsController extends AbstractController
     #[Route(path: 'api/v1/brands', name: 'brands')]
     public function getBrands(): Response
     {
-        return $this->json($this->wheelsBrandService->getAllBrands());
+        //var_dump($this->wheelsBrandService->getAllBrands());
+        return $this->render('brands.html.twig', ['brands' => $this->wheelsBrandService->getAllBrands()]);
     }
 
     #[Route(path: 'api/v1/brands/{brandId}')]
     public function getBrandById(int $brandId): Response
     {
         try {
-            return $this->json($this->wheelsBrandService->getBrandById($brandId));
+            return $this->render('brand.html.twig', ['brand' => $this->wheelsBrandService->getBrandById($brandId)]);
         } catch (BrandNotFoundException $exception) {
             throw new HttpException($exception->getCode(), $exception->getMessage());
         }
     }
 
-    #[Route(path: 'main')]
+    #[Route(path: 'main', name: 'allBrands')]
     public function viewAllBrands(): Response
     {
         $brands = $this->wheelsBrandRepository->findAllBrands();
