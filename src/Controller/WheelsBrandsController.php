@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WheelsBrandsController extends AbstractController
 {
-    public function __construct(private WheelsBrandService $wheelsBrandService, private WheelsBrandRepository $wheelsBrandRepository)
+    public function __construct(private WheelsBrandService $wheelsBrandService)
     {
     }
 
