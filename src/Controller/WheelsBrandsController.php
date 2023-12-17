@@ -20,6 +20,12 @@ class WheelsBrandsController extends AbstractController
     #[Route(path: 'api/v1/brands', name: 'brands')]
     public function getBrands(): Response
     {
+        session_save_path('../Sessions');
+        if(!session_id())
+        {
+            session_start();
+        }
+
         //var_dump($this->wheelsBrandService->getAllBrands());
         return $this->render('brands.html.twig', ['brands' => $this->wheelsBrandService->getAllBrands()]);
     }

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Добавление картинки для бренда</h2>
+<form action="{{ path('upload') }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
