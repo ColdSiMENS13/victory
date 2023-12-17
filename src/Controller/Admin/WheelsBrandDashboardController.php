@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Wheels;
 use App\Entity\WheelsBrand;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -40,12 +41,13 @@ class WheelsBrandDashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Wheels Brand');
+            ->setTitle('Wheels');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToRoute('Back to homepage', 'fas fa-home', 'brands');
         yield MenuItem::linkToCrud('Wheels Brand', 'fas fa-list', WheelsBrand::class);
+        yield MenuItem::linkToCrud('Wheels', 'fas fa-list', Wheels::class);
     }
 }

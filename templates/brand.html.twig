@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for brand_image in brand %}
+        <p align="center"><img src="{{ brand_image.image }}"></p>
+    {% endfor %}
+{% endblock %}

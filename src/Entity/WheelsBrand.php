@@ -18,6 +18,9 @@ class WheelsBrand
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +40,17 @@ class WheelsBrand
     public function setName(?string $name): WheelsBrand
     {
         $this->name = $name;
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): WheelsBrand
+    {
+        $this->image = $image;
         return $this;
     }
 }

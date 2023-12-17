@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Exceptions\BrandNotFoundException;
+use App\Repository\WheelsRepository;
 use App\Services\WheelsService;
+use Doctrine\DBAL\Schema\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
