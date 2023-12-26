@@ -29,11 +29,17 @@ class WheelsBrandsController extends AbstractController
     #[Route(path: 'api/v1/brands/{brandId}')]
     public function getBrandById(int $brandId): Response
     {
-        $this->session->set('brandId', $brandId);
+        $this->session->set('brandId', [$brandId]);
         try {
             return $this->render('brand.html.twig', ['brand' => $this->wheelsBrandService->getBrandById($brandId)]);
         } catch (BrandNotFoundException $exception) {
             throw new HttpException($exception->getCode(), $exception->getMessage());
         }
+    }
+
+    #[Route(path: '/test')]
+    public function test(): Response
+    {
+        return $this->json($this->session->get('brandId'));
     }
 }
