@@ -39,8 +39,11 @@ class UploadImageService
     public function uploadAndMove(UploadedFile $uploadedFile): string
     {
         $originalFileName = $this->validateImage($uploadedFile);
-        $newFileName = uniqid()."-".$originalFileName;
-        $uploadedFile->move("../Uploads/$this->extension", $newFileName);
+        $newFileName = md5(uniqid()."$originalFileName").".$this->extension";
+        while (!file_exists("../Uploads/$this->extension/$newFileName"))
+        {
+            $uploadedFile->move("../Uploads/$this->extension/", $newFileName);
+        }
 
         return realpath("../Uploads/$this->extension/".$newFileName);
     }
