@@ -38,6 +38,8 @@ services:
   redis:
     container_name: redis
     image: redis:7.0-alpine
+    ports:
+      - 49103:6379
 
   mailer:
     image: schickling/mailcatcher

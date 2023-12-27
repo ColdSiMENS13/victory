@@ -25,6 +25,7 @@ class CreateImageBrandController extends AbstractController
     public function uploadImage(Request $request): Response
     {
         $uploadedFile = $this->uploadImageService->getUploadedFile($request);
+        $uploadedFile->isValid();
 
         return $this->json($this->uploadImageService->uploadAndMove($uploadedFile));
     }
